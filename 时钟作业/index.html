@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<style type="text/css">
+			
+			#canvas{
+				width: 600px;
+				height: 600px;
+				border:solid 1px red;
+				margin: 0px auto;
+				display: block;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height="600"></canvas>
+		
+		
+		<script type="text/javascript">
+			var canvas = document.querySelector("#canvas");
+			var ctx = canvas.getContext('2d');
+			canvas.width = 600;
+			canvas.height = 600;
+			
+			ctx.translate(canvas.width/2,canvas.width/2);
+			ctx.arc(0,0,280,0,Math.PI*2);
+			ctx.strokeStyle = 'black';
+			ctx.lineWidth = 8;
+			ctx.stroke();
+			
+			for(var i=0;i<60;i++){
+				
+				var x = 260*Math.cos(Math.PI/180*i*6);
+				var y = 260*Math.sin(Math.PI/180*i*6);
+				
+				ctx.beginPath()
+				if(i%5==0){
+					ctx.arc(x,y,6,0,Math.PI*2);
+				}else{
+					ctx.arc(x,y,3,0,Math.PI*2);
+				}
+				
+				
+				ctx.arc(x,y,3,0,Math.PI*2);
+				ctx.fillStyle = 'black';
+				ctx.fill();
+				ctx.closePath();
+			}
+			
+			function time(hours,minutes,seconds){}
+				
+				ctx.strokeStyle = "black";	
+				ctx.lineCap = "round";
+				
+			
+				
+				//时
+				ctx.beginPath();
+				ctx.lineTo(0, 30);
+				ctx.lineTo(0, -130);
+				ctx.lineWidth = 18;
+				ctx.stroke();
+				ctx.restore();
+				//分
+				ctx.beginPath();
+				ctx.lineTo(0, 45);
+				ctx.lineTo(0, -180);
+				ctx.lineWidth = 10;
+				ctx.stroke();
+				
+				//秒
+				ctx.beginPath();
+				ctx.strokeStyle = "red";
+				ctx.lineTo(0, 55);
+				ctx.lineTo(0, -220);
+				ctx.lineWidth = 5;
+				ctx.stroke();
+				
+				ctx.beginPath();
+//				ctx.strokeStyle = "blueviolet";
+				ctx.arc(0,0,20,0,Math.PI*2);
+				ctx.fill();
+//				ctx.stroke();
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>
